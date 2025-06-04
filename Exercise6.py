@@ -16,9 +16,38 @@
         prime number
 """
 
-nb=int(input("Enter a positive int: "))
+def isPrime(aNumber):
+    """
+    isPrime returns True or False depending on the fact that aNumber
+    is a prime number or not
+    
+    Parameters
+    ----------
+    aNumber : the int to be tested
 
-if isPrime(nb):
+    Returns
+    -------
+    True if aNumber is a prime number.
+    False if aNumber is not a prime number.
+    None if an error is encountered.
+
+    """
+    if not isinstance(aNumber, int):
+        print("Wrong argument given: should be an int!")
+        return None
+    if aNumber <= 1:
+        print("Wrong argument given: should be an int > 1!")
+        return None
+    for divisor in range(2,aNumber):
+        if aNumber % divisor == 0:
+            return False
+    return True
+
+nb=int(input("Enter a positive int: "))
+result = isPrime(nb)
+if result == True:
     print(nb, "is a prime number")
-else:
+elif result == False:
     print(nb, "is not a prime number")
+else:
+    print("There is something wrong ...")
