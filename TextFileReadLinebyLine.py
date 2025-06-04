@@ -11,10 +11,10 @@ for line in csvFile:
     # if line == "\n":
     #     continue # switch to the next line
     
-    if  line != "\n":   
+    if  line != "\n":  # It means: "If the line is not empty:" 
         numbers=line.split(":")
        
-        if len(numbers) == 3:
+        if len(numbers) == 3: # It means: "If the line is composed of 3 elements:" 
             for ix in range(len(numbers)): # for ix in range(3):
                 numbers[ix]=int(numbers[ix])
             
