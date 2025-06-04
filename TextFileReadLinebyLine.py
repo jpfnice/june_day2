@@ -5,18 +5,27 @@ title=csvFile.readline()
 print("title: ", title)
 
 total=0
-
+lineNumber=1
 for line in csvFile:
-    numbers=line.split(":")
-    print(numbers)
     
-    for ix in range(len(numbers)): # for ix in range(3):
-        numbers[ix]=int(numbers[ix])
+    # if line == "\n":
+    #     continue # switch to the next line
+    
+    if  line != "\n":   
+        numbers=line.split(":")
+       
+        if len(numbers) == 3:
+            for ix in range(len(numbers)): # for ix in range(3):
+                numbers[ix]=int(numbers[ix])
+            
+            #total = total + int(numbers[0])
+            total = total + numbers[0]
+        else:
+            print(f"Line {lineNumber} is not composed of 3 numbers!!")
+    else:
+        print(f"Line {lineNumber} is empty")
         
-    print(numbers)
-    
-    #total = total + int(numbers[0])
-    total = total + numbers[0]
-
+    lineNumber+=1
+        
 print("Total is", total)
 csvFile.close()
